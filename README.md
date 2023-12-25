@@ -10,7 +10,7 @@
 
 
 ## 😮 Highlights
-this paper proposes a novel FSS framework based on the adapter mechanism that can greatly improve the performance of the current FSS model by adapting it to novel classes.
+This paper proposes a novel FSS framework based on the adapter mechanism that can greatly improve the performance of the current FSS model by adapting it to novel classes.
 
 ## 🚩 **Updates**
 Welcome to **watch** 👀 this repository for the latest updates.
