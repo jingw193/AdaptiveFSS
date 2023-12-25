@@ -20,10 +20,10 @@ Welcome to **watch** 👀 this repository for the latest updates.
 ## 🚀 Experimental Results
 
 ### Quantitative comparison
-<img src="assets/Report_score.png"/>
+<img src="assets/Report_score.png" width="50%" height="50%"/>
 
 ### Qualitative comparison
-<img src="assets/Vision_comparison.png"/>
+<img src="assets/Vision_comparison.png"  width="50%" height="50%"/>
 
 
 ## 👍 **Acknowledgement**
