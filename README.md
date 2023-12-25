@@ -6,6 +6,8 @@
 
 ## [Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]()
 
+<img src="assets/method.png"/>
+
 ## 😮 Highlights
 this paper proposes a novel FSS framework based on the adapter mechanism that can greatly improve the performance of the current FSS model by adapting it to novel classes.
 
@@ -14,7 +16,15 @@ Welcome to **watch** 👀 this repository for the latest updates.
 - [ ] Paper released.
 - [ ] Code release.
 - [ ] Video release.
-      
+
+## 🚀 Experimental Results
+
+### Quantitative comparison
+
+### Qualitative comparison
+<img src="assets/Vision_comparison.png"/>
+
+
 ## 👍 **Acknowledgement**
 This work is built on many amazing research works and open-source projects, thanks a lot to all the authors for sharing!
 * [DCAMA(ECCV2022)](https://github.com/pawn-sxy/DCAMA)
