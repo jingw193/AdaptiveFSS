@@ -2,7 +2,6 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
 <h5 align="center">
-[![homepage](https://img.shields.io/badge/Webpage-blue)](https://jingw193.github.io/Adaptive_FSS/)
 </h5>
 
 ## [Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]()
