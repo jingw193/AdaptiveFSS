@@ -3,8 +3,10 @@
 
 
 <h5 align="center"> <a href="https://jingw193.github.io/Adaptive_FSS/" align="center"> [Project page] | </a> <a href="" align="center"> [Paper (Coming Soon)] | </a> <a href="" align="center"> [Video (Coming Soon)] </a> </h5> 
+<div>
+  <img align="center" src="assets/method.png" width="75%" height="75%">
+</div>
 
-<img align="center" src="assets/method.png" width="75%" height="75%"/>
 
 
 ## 😮 Highlights
