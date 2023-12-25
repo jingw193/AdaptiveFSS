@@ -6,7 +6,7 @@
 
 ## [Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]()
 
-<img src="assets/method.png"/>
+<img src="assets/method.png" width="75%" height="75%"/>
 
 ## 😮 Highlights
 this paper proposes a novel FSS framework based on the adapter mechanism that can greatly improve the performance of the current FSS model by adapting it to novel classes.
@@ -20,10 +20,10 @@ Welcome to **watch** 👀 this repository for the latest updates.
 ## 🚀 Experimental Results
 
 ### Quantitative comparison
-<img src="assets/Report_score.png" width="50%" height="50%"/>
+<img src="assets/Report_score.png" width="75%" height="75%"/>
 
 ### Qualitative comparison
-<img src="assets/Vision_comparison.png"  width="50%" height="50%"/>
+<img src="assets/Vision_comparison.png"  width="75%" height="75%"/>
 
 
 ## 👍 **Acknowledgement**
