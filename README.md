@@ -1,6 +1,8 @@
 <h2 align="center"> <a href="https://github.com/jingw193/Adaptive_FSS">Adaptive_FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement</a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5> </h2>
-[Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]()
+
+
+<a href="https://jingw193.github.io/Adaptive_FSS/"> [Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]() </a>
 
 
 
