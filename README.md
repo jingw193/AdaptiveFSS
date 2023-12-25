@@ -6,7 +6,7 @@
 
 ## [Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]()
 
-<img src="assets/method.png" width="75%" height="75%"/>
+<img align="center" src="assets/method.png" width="75%" height="75%"/>
 
 ## 😮 Highlights
 this paper proposes a novel FSS framework based on the adapter mechanism that can greatly improve the performance of the current FSS model by adapting it to novel classes.
@@ -32,6 +32,8 @@ This work is built on many amazing research works and open-source projects, than
 * [FPTrans(NeurIPS2022)](https://github.com/Jarvis73/FPTrans)
 * [HDMNet(CVPR2023)](https://github.com/Pbihao/HDMNet)
 * [MSANet(2023)](https://github.com/AIVResearch/MSANet)
+
+
 Besides, this page was built using [Repaint123(2023)](https://github.com/junwuzhang19/repaint123), thanks for the author's sharing!
 
 ## ✏️ Citation
