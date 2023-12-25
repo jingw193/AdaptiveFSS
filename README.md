@@ -2,7 +2,7 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5> </h2>
 
 
-<a href="https://jingw193.github.io/Adaptive_FSS/" align="center"> [Project page](https://jingw193.github.io/Adaptive_FSS/) | [Paper (Coming Soon)]() | [Video (Coming Soon)]() </a>
+<a href="https://jingw193.github.io/Adaptive_FSS/" align="center"> [Project page] | </a> <a href="" align="center"> [Paper (Coming Soon)]() | </a> <a href="" align="center"> [Video (Coming Soon)]() </a>
 
 
 
