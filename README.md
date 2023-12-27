@@ -15,7 +15,8 @@
 
 ## 🚩 **Updates**
 Welcome to **watch** 👀 this repository for the latest updates.
-- [ ] Paper released.
+✅ **[2023.12.25]** : Released project page.
+✅ **[2023.12.26]** : We have released our paper on Arxiv.
 - [ ] Code release.
 - [ ] Video release.
 
