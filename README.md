@@ -2,7 +2,7 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5> </h1>
 
 
-<h4 align="center"> <a href="https://jingw193.github.io/Adaptive_FSS/" align="center"> [Project page] | </a> <a href="" align="center"> [Paper (Coming Soon)] | </a> <a href="" align="center"> [Video (Coming Soon)] </a> </h4> 
+<h4 align="center"> <a href="https://jingw193.github.io/Adaptive_FSS/" align="center"> [Project page] | </a> <a href="https://arxiv.org/pdf/2312.15731.pdf" align="center"> [Paper] | </a> <a href="" align="center"> [Video (Coming Soon)] </a> </h4> 
 <p align="center">
   <img src="assets/method.png" width="75%" height="75%">
 </p>
