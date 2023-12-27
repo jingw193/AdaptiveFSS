@@ -43,3 +43,14 @@ Besides, this page was built using [Repaint123(2023)](https://github.com/junwuzh
 
 ## ✏️ Citation
 If you find our paper and code useful in your research, please consider giving a star :star: and citation :pencil:.
+
+```BibTeX
+@misc{wang2023adaptive,
+      title={Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement}, 
+      author={Jing Wang and Jinagyun Li and Chen Chen and Yisi Zhang and Haoran Shen and Tianxiang Zhang},
+      year={2023},
+      eprint={2312.15731},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
