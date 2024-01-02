@@ -3,7 +3,7 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5> </h1>
 
 <p align="center">
- <a href='https://jingw193.github.io/AdaptiveFSS/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/pdf/2312.15731.pdf'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> <a href=''><img src='https://badges.aleen42.com/src/youtube.svg'> </a>
+ <a href='https://jingw193.github.io/AdaptiveFSS/'><img src='https://img.shields.io/badge/Project_Page-Adaptive_FSS-Green' alt='Paper PDF'></a> <a href='https://arxiv.org/pdf/2312.15731.pdf'><img src='https://img.shields.io/badge/Arxiv-Adaptive_FSS-red' alt='Project Page'></a> <a href=''><img src='https://badges.aleen42.com/src/youtube.svg'> </a>
 </p>
 
 <p align="center">
