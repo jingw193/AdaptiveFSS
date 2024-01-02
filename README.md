@@ -1,8 +1,10 @@
 <h1 align="center"> <a href="https://github.com/jingw193/AdaptiveFSS">Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement -- AAAI 2024</a></h1>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5> </h1>
 
+<p align="center">
+ <a href='https://jingw193.github.io/AdaptiveFSS/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/pdf/2312.15731.pdf'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> <a href=''><img src='https://badges.aleen42.com/src/youtube.svg'></a>
+</p>
 
-<h4 align="center"> <a href="https://jingw193.github.io/AdaptiveFSS/" align="center"> [Project page] | </a> <a href="https://arxiv.org/pdf/2312.15731.pdf" align="center"> [Paper] | </a> <a href="" align="center"> [Video (Coming Soon)] </a> </h4> 
 <p align="center">
   <img src="assets/method.png" width="75%" height="75%">
 </p>
