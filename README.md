@@ -1,4 +1,5 @@
-<h1 align="center"> Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement -- AAAI 2024</h1>
+<h1 align="center"> Adaptive FSS: A Novel Few-Shot Segmentation Framework via Prototype Enhancement </h1>
+<h3 align="center"> AAAI 2024 </h3>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update. </h5> </h1>
 
 <p align="center">
