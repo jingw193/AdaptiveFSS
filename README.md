@@ -13,7 +13,7 @@
 
 
 ## 😮 Highlights
-* This is the offical code of Adaptive FSS, which has been accepted by AAAI 2024.
+* This is the official code of Adaptive FSS, which has been accepted by AAAI 2024.
 * It presents a novel FSS framework based on the adapter mechanism that can greatly improve the performance of the current FSS model by adapting it to novel classes.
 
 ## 🚩 **Updates**
