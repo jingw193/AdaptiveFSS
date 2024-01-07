@@ -22,7 +22,8 @@ Welcome to **watch** 👀 this repository for the latest updates.
 ✅ **[2023.12.25]** : Released project page.
 
 ✅ **[2023.12.26]** : We have released our paper on Arxiv.
-- [ ] Code release.
+
+✅ **[2024.1.7]** : Released code.
 - [ ] Video release.
 
 ## 🚀 Experimental Results
