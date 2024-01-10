@@ -18,51 +18,51 @@ Creating a directory 'backbones' to place the above models. The overall director
 ├── backbones/          
 	├── coco/           
 		├── DCAMA/
-        	├── swin_fold0.pt   
-            ....
-            └── swin_fold3.pt
-        ├── FPTrans/            
-        	├── one_shot_DeiT/  
-        		├── fold0.pth    
-        		....
-        		└── fold3.pth
-        	└── five_shot_DeiT/      
-            	├── fold0.pth            
-        		....
-        		└── fold3.pth
-    	└── MSANet/            
-        	├── one_shot/          
-        		├── resnet50_0_0.4834.pth          
-        		....
-        		└── resnet50_3_0.4533.pth
-        	└── five_shot/             
-            	├── resnet50_5_0_0.5351.pth              
-        		....
-        		└── resnet50_5_3_0.5093.pth
+	        	├── swin_fold0.pt   
+	            	....
+	            	└── swin_fold3.pt
+	        ├── FPTrans/            
+	        	├── one_shot_DeiT/  
+	        		├── fold0.pth    
+	        		....
+	        		└── fold3.pth
+	        	└── five_shot_DeiT/      
+	            	├── fold0.pth            
+	        		....
+	        		└── fold3.pth
+	    	└── MSANet/            
+	        	├── one_shot/          
+	        		├── resnet50_0_0.4834.pth          
+	        		....
+	        		└── resnet50_3_0.4533.pth
+	        	└── five_shot/             
+		            	├── resnet50_5_0_0.5351.pth              
+	        		....
+	        		└── resnet50_5_3_0.5093.pth
 	├── pascal/            
 		├── DCAMA/
-        	├── swin_fold0.pt   
-            ....
-            └── swin_fold3.pt
-        ├── FPTrans/
-        	├── deit_base_distilled_patch16_384-d0272ac0.pth  # the deit pre-trained ViT-base checkpoint
-        	├── one_shot_DeiT/  
-        		├── fold0.pth    
-        		....
-        		└── fold3.pth
-        	└── five_shot_DeiT/      
-            	├── fold0.pth            
-        		....
-        		└── fold3.pth
-    	└── MSANet/            
-        	├── one_shot/          
-        		├── resnet50_0_0.6925.pth          
-        		....
-        		└── resnet50_3_0.6240.pth
-        	└── five_shot/             
-            	├── resnet50_5_0_0.7306.pth              
-        		....
-        		└── resnet50_5_3_0.6882.pth   
+	        	├── swin_fold0.pt   
+		    	....
+		    	└── swin_fold3.pt
+	        ├── FPTrans/
+	        	├── deit_base_distilled_patch16_384-d0272ac0.pth  # the deit pre-trained ViT-base checkpoint
+	        	├── one_shot_DeiT/  
+	        		├── fold0.pth    
+	        		....
+	        		└── fold3.pth
+	        	└── five_shot_DeiT/      
+		            	├── fold0.pth            
+	        		....
+	        		└── fold3.pth
+	    	└── MSANet/            
+	        	├── one_shot/          
+	        		├── resnet50_0_0.6925.pth          
+	        		....
+	        		└── resnet50_3_0.6240.pth
+	        	└── five_shot/             
+	            		├── resnet50_5_0_0.7306.pth              
+	        		....
+	        		└── resnet50_5_3_0.6882.pth   
 ```
 
 You can also down this directory from [Google Drive](https://drive.google.com/drive/folders/19bA4xbQ8ah38ij3m3hmK-wqHDXOwMMiA?usp=drive_link)
