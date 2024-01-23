@@ -395,18 +395,18 @@ class Prototype_Adaptive_Module(nn.Module):
             S = s_f.size(1)
             s_y = F.interpolate(s_y, (self.input_resolution[0], self.input_resolution[1]), mode='nearest')
             sup_mask_fg = (s_y == 1).float().reshape(B, S, -1).reshape(B, -1).unsqueeze(-1) #[B, S * N, 1]
-            samentic_prototype, sign_fore_per_batch = self.extract_samentic_prototype(s_f, sup_mask_fg)
+            semantic_prototype, sign_fore_per_batch = self.extract_semantic_prototype(s_f, sup_mask_fg)
 
             if class_idx is not None:
                 with torch.no_grad():
                     self.train()
-                    new_samentic_prototype = self.updata_prototype_bank(samentic_prototype, class_idx, sign_fore_per_batch)
+                    new_semantic_prototype = self.updata_prototype_bank(semantic_prototype, class_idx, sign_fore_per_batch)
             else:
                 self.eval()
-                new_samentic_prototype = self.select_prototype_bank(samentic_prototype, self.prototype)
+                new_semantic_prototype = self.select_prototype_bank(semantic_prototype, self.prototype)
 
-            enhanced_feat_q = self.enhanced_feature(x.unsqueeze(1), new_samentic_prototype, sign_fore_per_batch)
-            enhanced_feat_sup = self.enhanced_feature(s_f, new_samentic_prototype, sign_fore_per_batch)
+            enhanced_feat_q = self.enhanced_feature(x.unsqueeze(1), new_semantic_prototype, sign_fore_per_batch)
+            enhanced_feat_sup = self.enhanced_feature(s_f, new_semantic_prototype, sign_fore_per_batch)
 
             registered_feas_q = self.proj_drop(self.linears_up(self.act(self.linears_down(enhanced_feat_q.squeeze(1)))))
             registered_feas_sup = self.proj_drop(self.linears_up(self.act(self.linears_down(enhanced_feat_sup.reshape(-1, N, D)))))
@@ -414,7 +414,7 @@ class Prototype_Adaptive_Module(nn.Module):
             return registered_feas_q, registered_feas_sup
 
 
-      def extract_samentic_prototype(self, s_f, s_y):
+      def extract_semantic_prototype(self, s_f, s_y):
           """
           extract temporary class prototype according to support features and masks
           input:
@@ -423,94 +423,94 @@ class Prototype_Adaptive_Module(nn.Module):
             s_y: torch.Tensor
                 [B, S * N, 1], support masks
           output:
-            samentic_prototype: torch.Tensor
+            semantic_prototype: torch.Tensor
                 [B, D], temporary prototypes
             sign_fore_per_batch: torch.Tensor
-                [B], the signal of wether including foreground region in this image
+                [B], the signal of whether including foreground region in this image
           """
           B, S, N, D = s_f.shape
           num_fore_per_batch = torch.count_nonzero(s_y.reshape(B, -1), dim=1)
           s_y = s_y.repeat(1, 1, D)
-          samentic_prototype = s_y * s_f.reshape(B, -1, D)
-          samentic_prototype = samentic_prototype.mean(1) * (N * S) / (num_fore_per_batch.unsqueeze(1) + 1e-4)
+          semantic_prototype = s_y * s_f.reshape(B, -1, D)
+          semantic_prototype = semantic_prototype.mean(1) * (N * S) / (num_fore_per_batch.unsqueeze(1) + 1e-4)
           one = torch.ones_like(num_fore_per_batch).cuda()
           sign_fore_per_batch =  torch.where(num_fore_per_batch > 0.5, one, num_fore_per_batch)
-          return samentic_prototype, sign_fore_per_batch
+          return semantic_prototype, sign_fore_per_batch
       
-      def updata_prototype_bank(self, samentic_prototype, class_idx, sign_fore_per_batch):
+      def updata_prototype_bank(self, semantic_prototype, class_idx, sign_fore_per_batch):
           """
           updata prototype in class prototype bank during traning
           input:
-            samentic_prototype: torch.Tensor
+            semantic_prototype: torch.Tensor
                 [B, D]
             class_id: list
                 len(class_id) = B
             sign_fore_per_batch: torch.Tensor
-                [B], the signal of wether including foreground region in this image
+                [B], the signal of whether including foreground region in this image
           output:
-            new_samentic_prototype: torch.Tensor
+            new_semantic_prototype: torch.Tensor
                 [B, D], the updated prototypes for feature enhancement
           """   
-          B, D = samentic_prototype.shape
+          B, D = semantic_prototype.shape
           
           self.prototype = nn.functional.normalize(self.prototype, dim=0)
-          samentic_prototype = nn.functional.normalize(samentic_prototype, dim=1)
-          new_samentic_prototype_list = []
+          semantic_prototype = nn.functional.normalize(semantic_prototype, dim=1)
+          new_semantic_prototype_list = []
           for i in range(B):
-               samentic_prototype_per = samentic_prototype[i,: ]
+               semantic_prototype_per = semantic_prototype[i,: ]
                class_idx_per = class_idx[i]
                if sign_fore_per_batch[i] == 1:
-                    new_samentic_prototype_per = self.prototype[:, class_idx_per] * self.momentum + (1 - self.momentum) * samentic_prototype_per
-                    self.prototype[:, class_idx_per] = new_samentic_prototype_per
+                    new_semantic_prototype_per = self.prototype[:, class_idx_per] * self.momentum + (1 - self.momentum) * semantic_prototype_per
+                    self.prototype[:, class_idx_per] = new_semantic_prototype_per
                else: 
-                    new_samentic_prototype_per = self.prototype[:, class_idx_per]    
-               new_samentic_prototype_list.append(new_samentic_prototype_per)
-          new_samentic_prototype = torch.stack(new_samentic_prototype_list, dim=0)
-          return new_samentic_prototype
+                    new_semantic_prototype_per = self.prototype[:, class_idx_per]    
+               new_semantic_prototype_list.append(new_semantic_prototype_per)
+          new_semantic_prototype = torch.stack(new_semantic_prototype_list, dim=0)
+          return new_semantic_prototype
 
-      def select_prototype_bank(self, samentic_prototype, prototype_bank):
+      def select_prototype_bank(self, semantic_prototype, prototype_bank):
           """
           select prototypes in class prototype bank during testing
           input:
-            samentic_prototype: torch.Tensor
+            semantic_prototype: torch.Tensor
                 shape = [B, D]
             prototype_bank: torch.Tensor
                 shape = [D, class_num]
           output:
-            new_samentic_prototype: torch.Tensor
+            new_semantic_prototype: torch.Tensor
                 [B, D], the prototypes for feature enhancement
           """ 
-          B, D = samentic_prototype.shape
+          B, D = semantic_prototype.shape
           prototype_bank = nn.functional.normalize(prototype_bank, dim=0)
-          samentic_prototype = nn.functional.normalize(samentic_prototype, dim=1)
-          similar_matrix = samentic_prototype @ prototype_bank  # [B, class_num]
+          semantic_prototype = nn.functional.normalize(semantic_prototype, dim=1)
+          similar_matrix = semantic_prototype @ prototype_bank  # [B, class_num]
           idx = similar_matrix.argmax(1)
-          new_samentic_prototype_list = []
+          new_semantic_prototype_list = []
           for i in range(B):
-              new_samentic_prototype_per = prototype_bank[:, idx[i]]
-              new_samentic_prototype_list.append(new_samentic_prototype_per)
-          new_samentic_prototype = torch.stack(new_samentic_prototype_list, dim=0)
-          return new_samentic_prototype
+              new_semantic_prototype_per = prototype_bank[:, idx[i]]
+              new_semantic_prototype_list.append(new_semantic_prototype_per)
+          new_semantic_prototype = torch.stack(new_semantic_prototype_list, dim=0)
+          return new_semantic_prototype
 
-      def enhanced_feature(self, feature, new_samentic_prototype, sign_fore_per_batch):
+      def enhanced_feature(self, feature, new_semantic_prototype, sign_fore_per_batch):
           """ 
           Input:
             feature: torch.Tensor
                 [B, S, N, D]
-            new_samentic_prototype: torch.Tensor
+            new_semantic_prototype: torch.Tensor
                 [B, D]
           Outputs:
             enhanced_feature: torch.Tensor
                 [B, S, N, D]
           """
-          B, D = new_samentic_prototype.shape
+          B, D = new_semantic_prototype.shape
           feature_sim = nn.functional.normalize(feature, p=2, dim=-1)
-          new_samentic_prototype = nn.functional.normalize(new_samentic_prototype, p=2, dim=1)
+          new_semantic_prototype = nn.functional.normalize(new_semantic_prototype, p=2, dim=1)
           similarity_matrix_list = []
           for i in range(B):
               feature_sim_per = feature_sim[i,:, :, :]
-              new_samentic_prototype_er = new_samentic_prototype[i, :]
-              similarity_matrix_per = feature_sim_per @ new_samentic_prototype_er
+              new_semantic_prototype_er = new_semantic_prototype[i, :]
+              similarity_matrix_per = feature_sim_per @ new_semantic_prototype_er
               similarity_matrix_list.append(similarity_matrix_per)
           similarity_matrix = torch.stack(similarity_matrix_list, dim=0)
 
@@ -542,7 +542,7 @@ class BasicLayer(nn.Module):
 
     def __init__(self, args, dim, input_resolution, depth, num_heads, window_size,
                  mlp_ratio=4., qkv_bias=True, qk_scale=None, drop=0., attn_drop=0.,
-                 drop_path=0., adapter_weight=0., norm_layer=nn.LayerNorm, downsample=None, use_checkpoint=False, wether_adapter=False
+                 drop_path=0., adapter_weight=0., norm_layer=nn.LayerNorm, downsample=None, use_checkpoint=False, whether_adapter=False
                  ):
 
         super().__init__()
@@ -569,9 +569,9 @@ class BasicLayer(nn.Module):
         else:
             self.downsample = None
 
-        self.wether_adapter = wether_adapter
+        self.whether_adapter = whether_adapter
 
-        if wether_adapter:
+        if whether_adapter:
             if args.benchmark == 'coco':
                 self.class_num = 20
             elif args.benchmark == 'pascal':
@@ -613,7 +613,7 @@ class BasicLayer(nn.Module):
             else:
                 query_img = blk(query_img)
                 support_img = blk(support_img)
-                if self.wether_adapter:
+                if self.whether_adapter:
                     if i % self.gap == 0:
                         x_adapter_q, x_adapter_sup = self.adapter_blocks[i // self.gap](query_img, support_img, support_mask, class_idx)
                         query_img = query_img + x_adapter_q * self.adapter_weight
@@ -761,7 +761,7 @@ class SwinTransformer(nn.Module):
 
 
         self.layers = nn.ModuleList()
-        self.wether_adapter = [False, False, True, True]
+        self.whether_adapter = [False, False, True, True]
         for i_layer in range(self.num_layers):
             layer = BasicLayer(args, dim=int(embed_dim * 2 ** i_layer),
                                input_resolution=(patches_resolution[0] // (2 ** i_layer),
@@ -775,7 +775,7 @@ class SwinTransformer(nn.Module):
                                drop_path=dpr[sum(depths[:i_layer]):sum(depths[:i_layer + 1])],
                                norm_layer=norm_layer,
                                adapter_weight = adapter_weight,
-                               wether_adapter=self.wether_adapter[i_layer],
+                               whether_adapter=self.whether_adapter[i_layer],
                                downsample=PatchMerging if (i_layer < self.num_layers - 1) else None,
                                use_checkpoint=use_checkpoint)
             self.layers.append(layer)
