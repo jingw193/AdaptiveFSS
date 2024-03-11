@@ -1,6 +1,6 @@
-## Prepare Datasets
+## Prepare Datasets and Environment
 
-This section can refer to the [DCAMA](https://github.com/pawn-sxy/DCAMA). Our data preparation is similar to it.
+This section can refer to the [DCAMA](https://github.com/pawn-sxy/DCAMA). Our data preparation and environment configuration is similar to it.
 
 
 
@@ -66,6 +66,7 @@ Creating a directory 'backbones' to place the above models. The overall director
 ```
 
 You can also down this directory from [Google Drive](https://drive.google.com/drive/folders/19bA4xbQ8ah38ij3m3hmK-wqHDXOwMMiA?usp=drive_link)
+You can down the deit_base_distilled_patch16_384-d0272ac0.pth from [here](https://dl.fbaipublicfiles.com/deit/deit_base_distilled_patch16_384-d0272ac0.pth)
 
 
 
